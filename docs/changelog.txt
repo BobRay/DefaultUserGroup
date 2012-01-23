@@ -1,0 +1,5 @@
+Changelog for DefaultUserGroup Plugin
+
+DefaultUserGroup 1.0.0
+----------------------
+Initial Version
