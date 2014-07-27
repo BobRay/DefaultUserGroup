@@ -15,7 +15,7 @@ $components = array(
     /* These are used to define the package and set values for placeholders */
     'packageName' => 'DefaultUserGroup',  /* No spaces, no dashes */
     'packageNameLower' => $packageNameLower,
-    'packageDescription' => 'DefaultUserGroup project for MyComponent extra',
+    'packageDescription' => 'DefaultUserGroup automatically assigns newly created users to one or more User Groups',
     'version' => '1.1.0',
     'release' => 'p1',
     'author' => 'Bob Ray',
