@@ -1,0 +1,5 @@
+Changelog for DefaultUserGroup
+
+DefaultUserGroup 1.0.0
+---------------------------------
+Initial Version
