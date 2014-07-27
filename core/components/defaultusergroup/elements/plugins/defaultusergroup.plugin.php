@@ -49,6 +49,9 @@
 
 
 /* only operate on new users */
+
+/** @var $modx modX */
+/** @var $scriptProperties array */
 if ($mode != modSystemEvent::MODE_NEW) return;
 
 $groupSetting = $modx->getOption('dug_groups', $scriptProperties, null);
