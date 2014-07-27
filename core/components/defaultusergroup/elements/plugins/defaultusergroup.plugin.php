@@ -65,3 +65,5 @@ if (!empty($groupSetting)) {
       $success = $user->joinGroup($group, $groupRole );
    }
 }
+
+return '';
