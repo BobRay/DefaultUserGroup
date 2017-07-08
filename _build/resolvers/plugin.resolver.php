@@ -2,7 +2,7 @@
 /**
 * Resolver to connect plugins to system events for DefaultUserGroup extra
 *
-* Copyright 2012-2017 by Bob Ray <https://bobsguides.com>
+* Copyright 2012-2017 Bob Ray <https://bobsguides.com>
 * Created on 07-27-2014
 *
  * DefaultUserGroup is free software; you can redistribute it and/or modify it under the
