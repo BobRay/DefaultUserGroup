@@ -2,7 +2,7 @@
 /**
  * plugins transport file for DefaultUserGroup extra
  *
- * Copyright 2012-2017 Bob Ray <https://bobsguides.com>
+ * Copyright 2012-2019 Bob Ray <https://bobsguides.com>
  * Created on 07-27-2014
  *
  * @package defaultusergroup

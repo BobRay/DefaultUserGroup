@@ -2,7 +2,7 @@
 /**
  * DefaultUserGroup plugin
  *
- * Copyright 2011-2017 Bob Ray
+ * Copyright 2011-2019 Bob Ray
  *
  * @author Bob Ray
  * 1/20/12

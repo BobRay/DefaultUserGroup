@@ -2,7 +2,7 @@
 /**
 * Resolver to connect plugins to system events for DefaultUserGroup extra
 *
-* Copyright 2012-2017 Bob Ray <https://bobsguides.com>
+* Copyright 2012-2019 Bob Ray <https://bobsguides.com>
 * Created on 07-27-2014
 *
  * DefaultUserGroup is free software; you can redistribute it and/or modify it under the
@@ -92,8 +92,14 @@ if ($object->xpdo) {
                             array('name' => $fields['propertyset']));
                     }
                     if (!$plugin || !$event) {
-                        $modx->log(xPDO::LOG_LEVEL_ERROR, 'Could not find Plugin and/or Event ' .
-                            $fields['plugin'] . ' - ' . $fields['event']);
+                        if (!$plugin) {
+                            $modx->log(xPDO::LOG_LEVEL_ERROR, 'Could not find Plugin  ' .
+                                $fields['pluginid']);
+                        }
+                        if (!$event) {
+                            $modx->log(xPDO::LOG_LEVEL_ERROR, 'Could not find Event ' .
+                                $fields['event']);
+                        }
                         continue;
                     }
                     $pluginEvent = $modx->getObject('modPluginEvent', array('pluginid'=>$plugin->get('id'),'event' => $fields['event']) );
