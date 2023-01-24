@@ -2,7 +2,7 @@
 /**
 * Resolver to connect plugins to system events for DefaultUserGroup extra
 *
-* Copyright 2012-2019 Bob Ray <https://bobsguides.com>
+* Copyright 2012-2023 Bob Ray <https://bobsguides.com>
 * Created on 07-27-2014
 *
  * DefaultUserGroup is free software; you can redistribute it and/or modify it under the
@@ -53,18 +53,19 @@ $newEvents = array (
 if ($transport->xpdo) {
     $modx =& $transport->xpdo;
 
-    $prefix = $modx->getVersionData()['version'] >= 3
-        ? '\MODX\Revolution\\'
-        : '';
+    $classPrefix = $modx->getVersionData()['version'] >= 3
+            ? 'MODX\Revolution\\'
+            : '';
+
     switch ($options[xPDOTransport::PACKAGE_ACTION]) {
         case xPDOTransport::ACTION_INSTALL:
         case xPDOTransport::ACTION_UPGRADE:
 
             foreach($newEvents as $k => $fields) {
 
-                $event = $modx->getObject($prefix . 'modEvent', array('name' => $fields['name']));
+                $event = $modx->getObject($classPrefix . 'modEvent', array('name' => $fields['name']));
                 if (!$event) {
-                    $event = $modx->newObject($prefix . 'modEvent');
+                    $event = $modx->newObject($classPrefix . 'modEvent');
                     if ($event) {
                         $event->fromArray($fields, "", true, true);
                         $event->save();
@@ -87,12 +88,12 @@ if ($transport->xpdo) {
                     if (!checkFields('pluginid,event,priority,propertyset', $fields)) {
                         continue;
                     }
-                    $event = $modx->getObject($prefix . 'modEvent', array('name' => $fields['event']));
+                    $event = $modx->getObject($classPrefix . 'modEvent', array('name' => $fields['event']));
 
-                    $plugin = $modx->getObject($prefix . 'modPlugin', array('name' => $fields['pluginid']));
+                    $plugin = $modx->getObject($classPrefix . 'modPlugin', array('name' => $fields['pluginid']));
                     $propertySetObj = null;
                     if (!empty($fields['propertyset'])) {
-                        $propertySetObj = $modx->getObject($prefix . 'modPropertySet',
+                        $propertySetObj = $modx->getObject($classPrefix . 'modPropertySet',
                             array('name' => $fields['propertyset']));
                     }
                     if (!$plugin || !$event) {
@@ -106,10 +107,10 @@ if ($transport->xpdo) {
                         }
                         continue;
                     }
-                    $pluginEvent = $modx->getObject($prefix . 'modPluginEvent', array('pluginid'=>$plugin->get('id'),'event' => $fields['event']) );
+                    $pluginEvent = $modx->getObject($classPrefix . 'modPluginEvent', array('pluginid'=>$plugin->get('id'),'event' => $fields['event']) );
                     
                     if (!$pluginEvent) {
-                        $pluginEvent = $modx->newObject($prefix . 'modPluginEvent');
+                        $pluginEvent = $modx->newObject($classPrefix . 'modPluginEvent');
                     }
                     if ($pluginEvent) {
                         $pluginEvent->set('event', $fields['event']);
@@ -132,7 +133,7 @@ if ($transport->xpdo) {
 
         case xPDOTransport::ACTION_UNINSTALL:
             foreach($newEvents as $k => $fields) {
-                $event = $modx->getObject($prefix . 'modEvent', array('name' => $fields['name']));
+                $event = $modx->getObject($classPrefix . 'modEvent', array('name' => $fields['name']));
                 if ($event) {
                     $event->remove();
                 }
