@@ -47,11 +47,12 @@
  * Important: If you specify multiple roles, make sure the number of roles
  * is equal to the number of groups! */
 
+/** @var modX $modx */
+/** @var array $scriptProperties */
+/** @var int $mode */
+/** @var modUser $user */
 
 /* only operate on new users */
-
-/** @var $modx modX */
-/** @var $scriptProperties array */
 if ($mode != modSystemEvent::MODE_NEW) return;
 
 $groupSetting = $modx->getOption('dug_groups', $scriptProperties, null);
