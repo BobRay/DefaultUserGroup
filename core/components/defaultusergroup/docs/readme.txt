@@ -3,7 +3,7 @@ DefaultUserGroup automatically assigns newly created Users to one or more User G
 
 
 Author: Bob Ray <https://bobsguides.com>
-Copyright 2012-2019 Bob Ray
+Copyright 2012-2023 Bob Ray
 
 Official Documentation: https://bobsguides.com/defaultusergroup-tutorial.html
 
