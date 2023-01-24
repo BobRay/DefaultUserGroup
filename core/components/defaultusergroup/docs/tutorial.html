@@ -5,14 +5,12 @@
 existing users when you edit them. If the user selects certain User Groups when creating the new user, those selections will be honored, but
 the plugin will also add the user to the specified default User Groups.</p>
 
-<p>The plugin will work on new users created in Security | Manager Users, but it will not work if you create a new user in PHP code.
+<p>The plugin will work on new users created in Manage -> Users, but it will not work if you create a new user in PHP code.
 
 <h3>Installing DefaultUserGroup for MODX Revolution</h3>
 <p>
-Go to System | Package Management on the main menu in the MODX Manager and click on the "Download Extras" button. That will take you to the
-Revolution Repository (AKA Web Transport Facility). Put DefaultUserGroup in the search box and press Enter. Click on the "Download" button,
-and when it changes to "Downloaded," click on the "Finish" button. That should bring you back to your Package Management grid. Click on the
-"Install" button next to DefaultUserGroup in the grid. The DefaultUserGroup snippet should now be installed. The plugin is enabled by
+Go to Extras -> Installer on the main menu in the MODX Manager and click on the "Download Extras" button. That will take you to the
+Revolution Repository. Put DefaultUserGroup in the search box and press Enter. Click on the "Download" button. When the download finishes, click on the "Back to Package Manager" button. That should bring you back to your Package Management grid. Click on the "Install" button next to DefaultUserGroup in the grid. The DefaultUserGroup snippet should now be installed. The plugin is enabled by
 default.</p>
 
 <h3>Properties</h3>
@@ -39,8 +37,7 @@ property is optional and can contain the name of a single Role, or a comma-separ
     </li>
 
 </ul>
-<p><b>Important:</b> If you specify multiple Roles, make sure the number of Roles
-is equal to the number of groups!</p>
+<p><b>Important:</b> If you specify multiple Roles, make sure the number of Roles is equal to the number of groups!</p>
 
 <p>Rather than changing the default properties of the plugin to set the
 <fixedpre>dug_groups</fixedpre>
@@ -73,7 +70,7 @@ plugin and then attach it to the plugin.</p>
 </ol>
 
 <p>As you edit plugin values, you will see the default properties in the grid, but they are not really &quot;in&quot; your Property Set.
-They're just there for your information. The only properties truly in your set are the ones you change. After you save the Property Set, the
+They're just there for your information. The only properties truly in your Property Set are the ones you've changed. After you save the Property Set, the
 properties you've changed will be in a different color (usually green). If you add new properties to your Property Set that are not in the
 default properties (using the &quot;Create Property&quot; button), they will be in yet another color (usually purple).</p>
 
@@ -102,6 +99,6 @@ properties in one Property Set and specify that set for all events.</p>
 <h3>Enabling the DefaultUserGroup Plugin</h3>
 
 <p>When installed, the plugin is disabled. Once you have set up your property set and designated the User Groups to assign new Users to,
-edit the plugin, and on the main tab, uncheck the &quot;Plugin Disabled&quot; checkbox. Save the plugin.</p>
+edit the plugin, and on the main tab, edist the plugin and uncheck the &quot;Inactive Plugin&quot; checkbox. Save the plugin.</p>
 
 <p>&nbsp;</p>

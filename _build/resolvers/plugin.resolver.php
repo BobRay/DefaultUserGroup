@@ -49,18 +49,22 @@ if (!function_exists('checkFields')) {
 $newEvents = array (
             );
 
+/** @var modTransportPackage $transport */
+if ($transport->xpdo) {
+    $modx =& $transport->xpdo;
 
-if ($object->xpdo) {
-    $modx =& $object->xpdo;
+    $prefix = $modx->getVersionData()['version'] >= 3
+        ? '\MODX\Revolution\\'
+        : '';
     switch ($options[xPDOTransport::PACKAGE_ACTION]) {
         case xPDOTransport::ACTION_INSTALL:
         case xPDOTransport::ACTION_UPGRADE:
 
             foreach($newEvents as $k => $fields) {
 
-                $event = $modx->getObject('modEvent', array('name' => $fields['name']));
+                $event = $modx->getObject($prefix . 'modEvent', array('name' => $fields['name']));
                 if (!$event) {
-                    $event = $modx->newObject('modEvent');
+                    $event = $modx->newObject($prefix . 'modEvent');
                     if ($event) {
                         $event->fromArray($fields, "", true, true);
                         $event->save();
@@ -83,12 +87,12 @@ if ($object->xpdo) {
                     if (!checkFields('pluginid,event,priority,propertyset', $fields)) {
                         continue;
                     }
-                    $event = $modx->getObject('modEvent', array('name' => $fields['event']));
+                    $event = $modx->getObject($prefix . 'modEvent', array('name' => $fields['event']));
 
-                    $plugin = $modx->getObject('modPlugin', array('name' => $fields['pluginid']));
+                    $plugin = $modx->getObject($prefix . 'modPlugin', array('name' => $fields['pluginid']));
                     $propertySetObj = null;
                     if (!empty($fields['propertyset'])) {
-                        $propertySetObj = $modx->getObject('modPropertySet',
+                        $propertySetObj = $modx->getObject($prefix . 'modPropertySet',
                             array('name' => $fields['propertyset']));
                     }
                     if (!$plugin || !$event) {
@@ -102,10 +106,10 @@ if ($object->xpdo) {
                         }
                         continue;
                     }
-                    $pluginEvent = $modx->getObject('modPluginEvent', array('pluginid'=>$plugin->get('id'),'event' => $fields['event']) );
+                    $pluginEvent = $modx->getObject($prefix . 'modPluginEvent', array('pluginid'=>$plugin->get('id'),'event' => $fields['event']) );
                     
                     if (!$pluginEvent) {
-                        $pluginEvent = $modx->newObject('modPluginEvent');
+                        $pluginEvent = $modx->newObject($prefix . 'modPluginEvent');
                     }
                     if ($pluginEvent) {
                         $pluginEvent->set('event', $fields['event']);
@@ -128,7 +132,7 @@ if ($object->xpdo) {
 
         case xPDOTransport::ACTION_UNINSTALL:
             foreach($newEvents as $k => $fields) {
-                $event = $modx->getObject('modEvent', array('name' => $fields['name']));
+                $event = $modx->getObject($prefix . 'modEvent', array('name' => $fields['name']));
                 if ($event) {
                     $event->remove();
                 }
