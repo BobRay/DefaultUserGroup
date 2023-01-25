@@ -12,10 +12,10 @@
 
 <h3>Overview</h3>
 <p>The DefaultUserGroup plugin places all new users into a default User Group or groups. It will not change the User Group settings of
-existing users when you edit them. If the user selects certain User Groups when creating the new user, those selections will be honored, but
+existing users when you edit them. If you select certain User Groups when creating the new user, those selections will be honored, but
 the plugin will also add the user to the specified default User Groups.</p>
 
-<p>The plugin will work on new users created in Manage -> Users, but it will not work if you create a new user in PHP code.
+<p>The plugin will work on new users created in Manage -> Users, but it will not work if you create a new user in PHP code. There, you will have to use <fixedpre>$user->joinGroup('group name');</fixedpre></p>
 
 <h3>Installing DefaultUserGroup for MODX Revolution</h3>
 <p>
