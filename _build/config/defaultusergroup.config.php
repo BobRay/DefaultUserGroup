@@ -16,14 +16,14 @@ $components = array(
     'packageName' => 'DefaultUserGroup',  /* No spaces, no dashes */
     'packageNameLower' => $packageNameLower,
     'packageDescription' => 'DefaultUserGroup automatically assigns newly created users to one or more User Groups',
-    'version' => '1.1.0',
+    'version' => '1.1.3',
     'release' => 'p1',
     'author' => 'Bob Ray',
     'email' => '<https://bobsguides.com>',
     'authorUrl' => 'https://bobsguides.com',
     'authorSiteName' => "Bob's Guides",
     'packageDocumentationUrl' => 'https://bobsguides.com/defaultusergroup-tutorial.html',
-    'copyright' => '2012-2019',
+    'copyright' => '2012-2023',
 
     /* no need to edit this except to change format */
     'createdon' => strftime('%m-%d-%Y'),
